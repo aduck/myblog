@@ -24,7 +24,7 @@
 			var $this=$(this)
 			if(isVisible($this)){
 				if(!$this.loaded){
-					$this.attr('src',$this.data('origin')).height('auto')
+					$this.attr('src',$this.data('origin'))
 					$this.loaded=true
 				}
 			}
@@ -32,10 +32,7 @@
 	}
 
 	// 主函数
-	function lazyload($elems,opts){
-		var opts=opts || {}
-		var height=opts.height || '400px'
-		$elems.height(height)
+	function lazyload($elems){
 		$(window).on('load scroll',function(){
 			loadImgs($elems)
 		})
