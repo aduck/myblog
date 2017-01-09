@@ -1,0 +1,105 @@
+*{margin:0;padding:0;}
+img{border:0;}
+a{color:inherit;text-decoration:none;}
+table{border-collapse:collapse;border-spacing:0;}
+ul,li{list-style:none;}
+body{font-family:'Microsoft YaHei Light','Microsoft YaHei',Helvetica,Arial,sans-serif;font-size:14px;color:#333;}
+.container{width:1200px;margin:0 auto;}
+.clearfix{*zoom:1;}
+.clearfix:after{content:'';display:block;height:0;visibility:hidden;clear:both;}
+header,footer{display:block;}
+footer{text-align:center;font-size:14px;color:#777;padding:30px 0;clear:both;font-family:arial;}
+footer a{text-decoration:underline;}
+/**markdown**/
+.markdown{font-family:'Microsoft Yahei';color:#666;}
+/*标题*/
+.markdown h1,.markdown h2,.markdown h3,.markdown h4,.markdown h5,.markdown h6{line-height:1.25;padding-bottom:10px;border-bottom:1px solid #eee;margin:20px 0 15px;font-weight:600;color:#444;}
+.markdown h1{font-size:36px;}
+.markdown h2{font-size:24px;}
+.markdown h3{font-size:18px;}
+.markdown h4{font-size:16px;}
+.markdown h5{font-size:14px;}
+.markdown h6{font-size:12px;}
+/*段落*/
+.markdown p{font-size:15px;line-height:1.45;margin-bottom:15px;}
+/*引用*/
+.markdown blockquote{border-left:2px solid #ddd;padding:0 15px;color:#777;margin-bottom:15px;font-size:15px;}
+/*列表*/
+.markdown ol,.markdown ul{padding-left:30px;margin-bottom:15px;}
+.markdown ol li{list-style-type:decimal;}
+.markdown ul li{list-style-type:disc;}
+.markdown ol ul,.markdown ol ol,.markdown ul ol,.markdown ul ul{margin:5px 0;}
+.markdown ol ul li,.markdown ul ul li{list-style-type:circle;}
+.markdown li{margin-bottom:5px;}
+/*代码*/
+.markdown pre,.markdown code{padding:15px;background:#f7f7f7;word-wrap:normal;border-radius:3px;line-height:1.4;margin-bottom:15px;font-family:arial;white-space:pre;overflow:auto;}
+.markdown code{padding:2px;}
+/*强调*/
+.markdown em{font-style:italic;}
+.markdown strong{font-weight:600;}
+/*图片*/
+.markdown img{max-width:100%;_width:100%;border:0;}
+/*链接*/
+.markdown a{color:#4078c0;}
+.markdown a:hover{text-decoration:underline;}
+/*分割线*/
+.markdown hr{display:block;width:100%;height:1px;font-size:0;line-height:1px;background:#dfdfdf;border:0 none;margin:0 0 15px 0;}
+
+/**右侧悬浮**/
+.rightTools{position:fixed;right:50px;bottom:50px;}
+.rightTools a{display:block;width:50px;height:50px;border:1px solid #dfdfdf;background:#fff url(../images/add.png) no-repeat center;margin-top:10px;box-shadow:0 0 3px 1px rgba(0,0,0,.1);border-radius:50%;}
+.rightTools a.rightTool-top{background-image:url(../images/top.png);}
+
+/**文章页**/
+.journal{background:#fff;padding:0 120px 60px;width:960px;}
+.journal-admin{padding:10px 0;font-size:14px;}
+.journal-admin a{color:#333;display:inline-block;*display:inline;*zoom:1;height:25px;line-height:25px;border:1px solid #333;border-radius:4px;padding:0 10px;}
+.journal-tools{overflow:hidden;*zoom:1;padding:20px 0;text-align:right;font-size:16px;}
+.journal-tools img{vertical-align:middle;}
+.journal-back{float:left;}
+/*标题*/
+.journal-title{font-size:28px;line-height:1.3;padding:15px 0;font-weight:400;text-align:center;}
+.journal-info{color:#ccc;text-align:center;margin-bottom:30px;font-size:13px;}
+/*标签*/
+.journal-tags{padding:15px 0;margin-bottom:15px;}
+.journal-tags a{float:left;color:#999;margin-right:8px;font-size:14px;}
+.journal-tags a:hover{text-decoration:underline;}
+/*翻页*/
+.journal-links{margin-top:100px;}
+.journal-link{font-size:14px;margin-bottom:10px;color:#777;}
+.journal-link a{color:#333;}
+.journal-link a:hover{color:#2287D7;}
+.journal-link span{color:#999;}
+
+/**登陆页**/
+.formLogin{width:450px;margin:100px auto;}
+.formLogin fieldset{border:1px solid #2287D7;border-radius:10px;padding:50px;}
+.formLogin legend{text-align:center;padding:0 10px;font-size:16px;color:#2287D7;}
+.formItem{margin-bottom:15px;text-align:center;color:#666;}
+.formItem input{border:1px solid #ccc;height:18px;line-height:18px;padding:5px;width:230px;border-radius:4px;}
+.formBtn{text-align:center;padding-top:20px;}
+.formBtn input{border:0 none;background:#2287D7;height:35px;line-height:35px;color:#fff;width:100px;border-radius:5px;cursor:pointer;font-family:'Microsoft Yahei';}
+
+/**标签页**/
+.tagItems{padding:50px 0;}
+.tagItems a{display:inline-block;*display:inline;*zoom:1;height:25px;line-height:25px;border-radius:4px;padding:0 8px;background:#777;color:#fff;margin:0 15px 15px 0;}
+
+/**列表页**/
+.journalItem{position:relative;width:1200px;height:400px;overflow:hidden;margin-bottom:30px}
+.journalItem-thumb{width:100%;height:100%;font-size:0;text-align:center;overflow:hidden;}
+.journalItem-thumb img{height:100%;line-height:1;}
+.journalItem-layer{width:100%;height:100%;filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#33000000',endColorstr='#33000000');background:rgba(0,0,0,.2);position:absolute;left:0;top:0;}
+.journalItem-title{text-align:center;position:absolute;left:0;top:166px;width:100%;font-family:'宋体';}
+.journalItem-title a{color:#fff;font-size:20px;height:65px;line-height:65px;padding:0 40px;border:1px solid #fff;display:inline-block;*display:inline;*zoom:1;border-radius:4px;}
+.journalItem-date{position:absolute;bottom:45px;left:15px;color:#fff;font-family:arial;font-size:18px;}
+.journalItem-intro{position:absolute;bottom:15px;left:15px;color:#e2e2e2;font-size:14px;}
+.journalItem-tags{position:absolute;right:10px;bottom:15px;text-align:right;}
+.journalItem-tags a{display:inline-block;*display:inline;*zoom:1;border-radius:4px;;height:24px;line-height:24px;padding:0 10px;margin-left:8px;filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#33ffffff',endColorstr='#33ffffff');background:rgba(255,255,255,.3);color:#fff;}
+.journalItem-tags a:hover{opacity:.8;}
+.pageNavs{padding:20px 0;text-align:center;}
+.pageNavs a,.pageNavs span{display:inline-block;*display:inline;*zoom:1;border:1px solid #ccc;color:#333;padding:6px 12px;margin:0 5px;font-size:14px;line-height:1.4;border-radius:4px;}
+.pageNavs span{cursor:not-allowed;color:#999;}
+.pageNavs a:hover{background:#e6e6e6;border-color:#adadad;}
+.banner{height:760px;background:url(../images/banner.jpg) no-repeat center top;position:relative;margin-bottom:30px;}
+.banner-shadow{position:absolute;left:0;top:0;width:100%;height:104px;padding-top:10px;background:url(../images/shadow.png) no-repeat center top;color:#fff;z-index:2;}
+.loginBtn,.logoutBtn{display:inline-block;*display:inline;*zoom:1;height:30px;line-height:30px;border:1px solid #fff;padding:0 10px;color:#fff;font-size:15px;border-radius:4px;}

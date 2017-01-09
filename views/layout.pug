@@ -1,0 +1,12 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		meta(name="keywords",content=`${blog.keywords}`)
+		meta(name="description",content=`${blog.description}`)
+		block header
+	body
+		block content
+		include ./inc/footer.pug
+		include ./inc/right.pug
+		block script

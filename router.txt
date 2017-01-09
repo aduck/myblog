@@ -1,0 +1,30 @@
+/**文章**/
+POST /journal/create 添加文章
+GET /journal/create 添加文章页
+GET /journal 查看所有文章
+GET /journal?page=1 分页
+GET /journal/:id 查看单一文章
+POST /journal/:id/edit 修改文章
+GET /journal/:id/edit 修改文章页
+GET /journal/:id/remove 删除文章
+
+/**图片**/
+POST /photo/upload 上传图片
+
+/**标签**/
+GET /tag 所有标签页
+GET /tag/wo 标签列表页
+
+/**用户**/
+GET /login 登陆页
+POST /login 登陆
+GET /
+
+/**配置项**/
+上传目录
+最大上传个数
+session相关
+
+入口进程管理
+日志
+通知

@@ -1,0 +1,155 @@
+doctype html
+html
+  head
+    title #{blog.name}-文章修改
+    meta(charset='utf-8')
+    link(href=`${root}css/editor.css`,rel="stylesheet")
+    link(href=`${root}js/mlayer.css`,rel="stylesheet")
+  body
+    .container
+      .journalEditor
+        form(action=`/journal/${_id}/edit`,method="post")
+          p.journalEditor-item.journalEditor-item-title 标题
+            br
+            input#title(type="text",name="title",value=`${title}`)
+          p.journalEditor-item 封面(1200*400) 
+            label.thumbUp-btn(for="thumb") 上传封面
+              input#thumb(type="file",name="thumb")
+            span.thumbUp-pre
+              img#thumbUp-pre(src=`${thumb}`)
+            input#thumbPath(type="hidden",name="thumbPath",value=`${thumb}`)
+          p.journalEditor-item.journalEditor-item-tags 标签
+            br
+            input#tags(type="text",name="tags",value=`${tagstr}`)
+          .editor-tools
+            label.editor-tool.editor-tool-upload(for="photo") 添加图片
+              input#photo(type="file",multiple,name="photo")
+            input#pictures(type="hidden",name="pictures",value=`${picstr}`)
+          .editor-markdown
+            textarea#content(name="content")
+              | #{content}
+          input.editor-save(type="button",value="存草稿",onclick="setBackUp()")
+          if draft
+            input.editor-backup(type="button",value="恢复",onclick="backUp()")
+          input.editor-submit(type="submit",value="提交")
+      // 上传loading模板
+      script#mlayer-upload(type="text/tpl")
+        #loading 上传中...
+      script(src=`${root}js/jquery.min.js`)
+      script(src=`${root}js/mlayer.js`)
+      script(src=`${root}js/cookie.js`)  
+      script.
+        var $title=$('#title') // 标题域
+        var $thumb=$('#thumbPath') // 封面隐藏域
+        var $thumbPre=$('#thumbUp-pre') // 封面缩略图
+        var $thumbUp=$('#thumb') // 封面上传按钮
+        var $tags=$('#tags') // 标签域
+        var $content=$('#content') // 内容域
+        var $picsUp=$('#photo') // 图片上传按钮
+        var $pics=$('#pictures') // 图片隐藏域
+        var url='/photo/upload' // 图片上传url
+        var imgReg=/\.(gif|jpg|jpeg|png|GIF|JPG|PNG)$/ // 验证图片正则
+        var pictures=$pics.val().split(',') || [] // 所有图片
+      
+        // 上传文件
+        function upFile(url,field,files,cb){
+          var loading;
+          var formData=new FormData()
+          files.forEach(function(file){
+            if(!imgReg.test(file.name)){
+              // 不是图片
+              return handleMsg('只能上传图片！文件已忽略')
+            }else{
+              formData.append(field,file)
+            }
+          })
+          // 开始上传
+          $.ajax({
+            url:url,
+            type:'POST',
+            data:formData,
+            processData:false,
+            contentType:false,
+            dataType:'json',
+            beforeSend:function(){
+              loading=layer.open({
+                content:$('#mlayer-upload').html()
+              })
+            },
+            success:function(res){
+              layer.close(loading)
+              cb(res)
+            }
+          })
+        }
+        // 错误处理
+        function handleMsg(msg){
+          alert(msg)
+        }
+        // 插图
+        $picsUp.on('change',function(e){
+          var files=[].slice.call(e.target.files)
+          var field=$(this).attr('name')
+          upFile(url,field,files,function(res){            
+            res[field].forEach(function(item){
+              var imgSrc=item.path.replace(/\\/,'/')
+              // 编辑器中显示
+              $content.get(0).value+=`![${item.filename}](!{root}${imgSrc})\n`
+              // 保存路径
+              pictures.push("!{root}"+imgSrc)
+            })
+            $pics.val(pictures.join(','))
+          })
+        })
+        // 封面图
+        $thumbUp.on('change',function(e){
+          var file=[].slice.call(e.target.files,0)
+          var field=$(this).attr('name')
+          upFile(url,field,file,function(res){
+            var resPath='!{root}'+res[field][0].path.replace(/\\/,"/")
+            $thumb.val(resPath) // 更改隐藏域的值
+            $thumbPre.attr('src',resPath) // 显示封面图
+          })
+        })
+
+        // 添加cookie
+        function setBackUp(){
+          var draft={
+            title:$title.val(), // 标题
+            thumb:$thumb.val(), // 封面
+            tags:$tags.val(), // 标签
+            content:$content.val(), // 内容
+            pics:$pics.val() // 相关图片
+          }
+          Cookie.set({
+            name:'draft',
+            value:JSON.stringify(draft),
+            expires:new Date(Date.now()+7*24*60*60*1000),
+            path:'/'
+          })
+          // 成功tip
+          handleMsg('草稿保存成功')
+        }
+
+        // 恢复草稿内容
+        function backUp(){
+          var draftStr=Cookie.get('draft')
+          if(!draftStr) return;
+          var draft=JSON.parse(draftStr)
+          var title=draft.title
+          var thumb=draft.thumb
+          var tags=draft.tags
+          var content=draft.content
+          var pics=draft.pics
+          // 恢复标题
+          $title.val(title)
+          // 恢复缩略图相关
+          $thumb.val(thumb)
+          $thumbPre.attr('src',thumb)
+          // 恢复标签
+          $tags.val(tags)
+          // 恢复内容
+          $content.val(content)
+          // 恢复相关图片
+          $pics.val(pics)
+        }

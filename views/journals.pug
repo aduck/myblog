@@ -1,0 +1,33 @@
+extends ./layout.pug
+
+block header
+	title #{blog.name}
+	link(href=`${root}css/style.css`,rel="stylesheet")
+block content
+	include inc/header.pug
+	.banner
+	.container
+		each item,index in items
+			.journalItem
+				.journalItem-thumb
+					img(data-origin=`${item.thumb}`,alt=`${item.title}`)
+				.journalItem-layer
+				.journalItem-title
+					a(href=`/journal/${item._id}`) #{item.title}
+				.journalItem-date
+					| #{dates[index]}
+				.journalItem-intro
+					| #{intros[index]}
+				.journalItem-tags
+					each val in item.tags
+						a(href=`/tag/${val}`) #{val}
+		else
+			p 文章不见鸟...
+		if total>1
+			.pageNavs
+				include inc/page.pug
+block script
+	script(src=`${root}js/jquery.min.js`)
+	script(src=`${root}js/lz.js`)
+	script.
+		lazyload($('.journalItem-thumb img'))

@@ -1,0 +1,61 @@
+extends layout.pug
+
+block header
+	title #{blog.name}
+	link(href=`${root}css/style.css`,rel="stylesheet")
+	style.
+		body{background:#f1f1f1;}
+block content
+	.container.journal
+		if user
+			.journal-admin
+				| #{user.nick}　
+				a(href="/logout") 退出
+			.journal-tools
+				a.journal-back(href='javascript:history.go(-1);')
+					img(src=`${root}images/back.png`) 
+					|  返回
+				a(href=`/journal/${journal._id}/edit`)
+					img(src=`${root}images/edit.png`) 
+					|  编辑
+				| 　
+				a(href='javascript:deletePostor();') 
+					img(src=`${root}images/del.png`) 
+					|  删除
+		else
+			.journal-admin
+				a(href=`/login?from=${url}`) 登陆
+			.journal-tools
+				a.journal-back(href='javascript:history.go(-1);')
+					img(src=`${root}images/back.png`)
+					| 返回
+		.journal-title #{journal.title}
+		.journal-info
+			| 查看：#{journal.meta.pv}　/　#{date}
+		.journal-content.markdown
+			!=html
+		.journal-tags.clearfix
+			each tag,index in journal.tags
+				a(href=`/tag/${tag}`) ##{tag}# 
+		.journal-links
+			.journal-link 上一篇：
+				if siblings[0]
+					a(href=`/journal/${siblings[0]._id}`) #{siblings[0].title}
+				else
+					span 没有了...
+			.journal-link 下一篇：
+				if siblings[1]
+					a(href=`/journal/${siblings[1]._id}`) #{siblings[1].title}
+				else
+					span 没有了...
+block script
+	script(src=`${root}js/jquery.min.js`)
+	script(src=`${root}js/lz.js`)
+	script.
+		function deletePostor(){
+			if(confirm('确定删除？')){
+				location.href='/journal/!{journal._id}/remove'
+			}
+		}
+
+		lazyload($('.journal-content img'))

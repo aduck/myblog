@@ -1,0 +1,8 @@
+header
+	.banner-shadow
+			.container
+				if user
+					| hello,#{user.nick}　
+					a.logoutBtn(href="/logout") 退出登陆
+				else
+					a.loginBtn(href="/login") 登陆

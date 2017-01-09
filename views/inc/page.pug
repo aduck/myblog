@@ -1,0 +1,8 @@
+if current==1
+	span 上一页
+else
+	a(href=`/journal?page=${parseInt(current)-1}`) 上一页
+if current==total
+	span 下一页
+else
+	a(href=`/journal?page=${parseInt(current)+1}`) 下一页
