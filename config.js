@@ -1,12 +1,14 @@
 module.exports={
 	// 根目录
-	root:'http://localhost',
+	root:'http://127.0.0.1/',
 	// 端口
 	port:80,
 	// 上传路径
 	upload:'uploads',
 	// 同时最大上传个数
 	maxUpdate:12,
+	// 访问记录
+	openRecord:false,
 	// 信息
 	blog:{
 		name:'博客',
@@ -17,9 +19,9 @@ module.exports={
 	// 分页个数
 	page:10,
 	session:{
-		key:'blogtest',
-		secret:'blogtest',
+		key:'blog',
+		secret:'blog',
 		maxAge:24*60*60*1000
 	},
-	mongodb:'mongodb:localhost/test'
+	mongodb:'mongodb://localhost/blog'
 }

@@ -9,6 +9,7 @@ module.exports=function(app){
 	app.use('/photo',require('./photo')) // 图片
 	app.use('/journal',require('./journal')) // 日志
 	app.use('/tag',require('./tag')) // 标签
+	app.use('/api',require('./api')) // api
 	// 错误处理
 	app.use(function(req,res,next){
 		var err=new Error('Not Found')

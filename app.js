@@ -8,6 +8,7 @@ var mongoose=require('mongoose')
 var session=require('express-session')
 var MongoStore=require('connect-mongo')(session)
 var cookieParser=require('cookie-parser')
+var visitRecord=require('./middle/visitRecord')
 
 // 连接数据库
 mongoose.connect(config.mongodb)
@@ -39,6 +40,8 @@ app.use(function(req,res,next){
 	res.locals.draft=req.cookies.draft
 	next()
 })
+// 访问记录
+if(!!config.openRecord) app.use(visitRecord)
 // 配置
 app.set('views',path.join(__dirname,'views'))
 app.set('view engine','pug')
