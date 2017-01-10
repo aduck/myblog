@@ -1,4 +1,7 @@
 config.js
+
 /node_modules
+
 /logs
+
 /uploads
