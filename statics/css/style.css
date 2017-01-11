@@ -13,7 +13,7 @@ footer a{text-decoration:underline;}
 /**markdown**/
 .markdown{font-family:'Microsoft Yahei';color:#666;}
 /*标题*/
-.markdown h1,.markdown h2,.markdown h3,.markdown h4,.markdown h5,.markdown h6{line-height:1.25;padding-bottom:10px;border-bottom:1px solid #eee;margin:20px 0 15px;font-weight:600;color:#444;}
+.markdown h1,.markdown h2,.markdown h3,.markdown h4,.markdown h5,.markdown h6{line-height:1.25;padding-bottom:10px;border-bottom:1px solid #eee;margin:20px 0 15px;font-weight:100;color:#444;}
 .markdown h1{font-size:36px;}
 .markdown h2{font-size:24px;}
 .markdown h3{font-size:18px;}
