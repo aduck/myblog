@@ -7,6 +7,7 @@ module.exports=function(req,res,next){
 	var originUrl=req.originalUrl // 访问目录
 	var ip=req.connection.remoteAddress.slice(7) // 访问者ip
 	var city // 访问者城市
+	var isp // 访问者电信服务商
 	var line=''
 	var date=moment(Date.now()).utcOffset(8).format('YYYY-MM-DD')
 	var time=moment(Date.now()).utcOffset(8).format('HH:mm')
@@ -29,9 +30,10 @@ module.exports=function(req,res,next){
 		}).on('end',function(){
 			try{
 				var raw=JSON.parse(rawData)
-				city=raw.city || '未知'
+				city=raw.city || '未知城市'
+				isp=raw.isp || '未知服务商'
 			}catch(e){}
-			line+=`${ip}　${city}　${originUrl}　${time}\n`
+			line+=`${ip}　${city}|${isp}　${originUrl}　${time}\n`
 			fs.writeFile(`${output}/${date}`,line,{flag:'a'},function(error){
 				if(error) return next(error)
 			})
