@@ -8,6 +8,7 @@ var mongoose=require('mongoose')
 var session=require('express-session')
 var MongoStore=require('connect-mongo')(session)
 var cookieParser=require('cookie-parser')
+var compression=require('compression')
 var visitRecord=require('./middle/visitRecord')
 
 // 连接数据库
@@ -19,6 +20,7 @@ app.locals.pretty=' '
 // 中间件
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cookieParser())
+app.use(compression())
 app.use(express.static('statics'))
 app.use('/uploads',express.static(config.upload))
 app.use(session({
