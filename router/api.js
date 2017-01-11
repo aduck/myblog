@@ -44,6 +44,7 @@ router.get('/journal',function(req,res,next){
 		.findById(id)
 		.exec(function(err,item){
 			if(err) return res.json({"success":false,"message":err.message})
+			if(!item) return res.json({"success":false,"message":"数据不存在"})
 			if(mdrender=='true'){
 				var content=item.content
 				item.content=marked(content)
