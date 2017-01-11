@@ -26,7 +26,7 @@ var journalSchema=new mongoose.Schema({
       default:0
     }
   },
-  comment:{
+  comments:{
     type:Array,
     default:[]
   }
