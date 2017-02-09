@@ -1,0 +1,53 @@
+extends layout.pug
+
+block header
+  title #{blog.name}-禁止IP
+  link(href=`${root}css/style.css`,rel="stylesheet")
+block content
+  .container
+    .refuseIp-editor
+      input#ipIpt(type="text",name="ip")
+      button#addIp(onclick="addIp()") 添加IP
+    .refuseIp-lists
+      .clearfix.refuseIp-title
+        .refuseIp-ip IP地址
+        .refuseIp-time 限制日期
+        .refuseIp-tool 操作
+      each item in items
+        .refuseIp-item.clearfix
+          .refuseIp-ip #{item.ip}
+          .refuseIp-time #{item.time}
+          .refuseIp-tool
+            button.refuseIp-remove(onclick=`removeIp('${item.ip}')`) 删除
+      else
+        | 没有IP限制
+block script
+  script(src=`${root}js/jquery.min.js`)
+  script.
+    function addIp(){
+      var ip=$.trim($('#ipIpt').val())
+      if(!ip) return;
+      $.ajax({
+        type:'POST',
+        url:'/refuse/add',
+        data:{ip:ip},
+        dataType:'json',
+        success:function(res){
+          alert(res.msg)
+          if(!res.error) location.reload()
+        }
+      })
+    }
+
+    function removeIp(ip){
+      $.ajax({
+        type:'POST',
+        url:'/refuse/remove',
+        data:{ip:ip},
+        dataType:'json',
+        success:function(res){
+          alert(res.msg)
+          if(!res.error) location.reload()
+        }
+      })
+    }

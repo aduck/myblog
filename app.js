@@ -10,6 +10,7 @@ var MongoStore=require('connect-mongo')(session)
 var cookieParser=require('cookie-parser')
 var compression=require('compression')
 var visitRecord=require('./middle/visitRecord')
+var refuse=require('./middle/refuse')
 
 // 连接数据库
 mongoose.connect(config.mongodb)
@@ -42,6 +43,8 @@ app.use(function(req,res,next){
 	res.locals.draft=req.cookies.draft
 	next()
 })
+// 访问限制
+app.use(refuse)
 // 访问记录
 if(!!config.openRecord) app.use(visitRecord)
 // 配置

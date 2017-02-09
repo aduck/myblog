@@ -1,30 +1,38 @@
-/**ндуб**/
-POST /journal/create лМ╪сндуб
-GET /journal/create лМ╪сндубрЁ
-GET /journal ╡И©╢кЫспндуб
-GET /journal?page=1 ╥жрЁ
-GET /journal/:id ╡И©╢╣╔р╩ндуб
-POST /journal/:id/edit пч╦дндуб
-GET /journal/:id/edit пч╦дндубрЁ
-GET /journal/:id/remove и╬ЁЩндуб
+О╩©/**Ф√┤Г╚═**/
+POST /journal/create Ф╥╩Е┼═Ф√┤Г╚═
+GET /journal/create Ф╥╩Е┼═Ф√┤Г╚═И║╣
+GET /journal Ф÷╔Г°▀Ф┴─Ф°┴Ф√┤Г╚═
+GET /journal?page=1 Е┬├И║╣
+GET /journal/:id Ф÷╔Г°▀Е█∙Д╦─Ф√┤Г╚═
+POST /journal/:id/edit Д©╝Ф■╧Ф√┤Г╚═
+GET /journal/:id/edit Д©╝Ф■╧Ф√┤Г╚═И║╣
+GET /journal/:id/remove Е┬═И≥╓Ф√┤Г╚═
 
-/**м╪ф╛**/
-POST /photo/upload ио╢╚м╪ф╛
+/**Е⌡╬Г┴┤**/
+POST /photo/upload Д╦┼Д╪═Е⌡╬Г┴┤
 
-/**╠Йг╘**/
-GET /tag кЫсп╠Йг╘рЁ
-GET /tag/wo ╠Йг╘ап╠МрЁ
+/**Ф═┤Г╜╬**/
+GET /tag Ф┴─Ф°┴Ф═┤Г╜╬И║╣
+GET /tag/wo Ф═┤Г╜╬Е┬≈Х║╗И║╣
 
-/**сц╩╖**/
-GET /login ╣гб╫рЁ
-POST /login ╣гб╫
+/**Г■╗Ф┬╥**/
+GET /login Г≥╩И≥├И║╣
+POST /login Г≥╩И≥├
 GET /
 
-/**еДжцоН**/
-ио╢╚д©б╪
-вН╢Сио╢╚╦ЖйЩ
-sessionоЮ╧ь
+/**ipИ≥░Е┬╤**/
+GET /refuse ipИ≥░Е┬╤Е╠∙Г╓╨И║╣
+POST /refuse/add Ф╥╩Е┼═ipИ≥░Е┬╤
+POST /refuse/remove Е┬═И≥╓ipИ≥░Е┬╤
 
-хК©з╫ЬЁл╧эюМ
-хуж╬
-м╗ж╙
+/**Ф┴▀Ф°╨**/
+GET /h5 Ф┴▀Ф°╨Х╝©И≈╝И║╣
+
+/**И┘█Г╫╝И║╧**/
+Д╦┼Д╪═Г⌡╝Е╫∙
+Ф°─Е╓╖Д╦┼Д╪═Д╦╙Ф∙╟
+sessionГ⌡╦Е┘Ё
+
+Е┘╔Е▐ёХ©⌡Г╗▀Г╝║Г░├
+Ф≈╔Е©≈
+И─ Г÷╔

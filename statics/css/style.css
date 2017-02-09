@@ -49,6 +49,7 @@ footer a{text-decoration:underline;}
 .rightTools{position:fixed;right:50px;bottom:50px;}
 .rightTools a{display:block;width:50px;height:50px;border:1px solid #dfdfdf;background:#fff url(../images/add.png) no-repeat center;margin-top:10px;box-shadow:0 0 3px 1px rgba(0,0,0,.1);border-radius:50%;}
 .rightTools a.rightTool-top{background-image:url(../images/top.png);}
+.rightTools a.rightTool-home{background-image:url(../images/home.png);}
 
 /**文章页**/
 .journal{background:#fff;padding:0 120px 60px;width:960px;}
@@ -103,3 +104,16 @@ footer a{text-decoration:underline;}
 .banner{height:760px;background:url(../images/banner.jpg) no-repeat center top;position:relative;margin-bottom:30px;}
 .banner-shadow{position:absolute;left:0;top:0;width:100%;height:104px;padding-top:10px;background:url(../images/shadow.png) no-repeat center top;color:#fff;z-index:2;}
 .loginBtn,.logoutBtn{display:inline-block;*display:inline;*zoom:1;height:30px;line-height:30px;border:1px solid #fff;padding:0 10px;color:#fff;font-size:15px;border-radius:4px;}
+
+/**拒绝IP**/
+.refuseIp-editor{margin:30px 0;}
+.refuseIp-editor input{width:300px;border:1px solid #ccc;border-radius:4px;padding:5px;height:20px;line-height:20px;font-size:14px;}
+.refuseIp-editor button{width:85px;height:30px;line-height:30px;text-align:center;border:0 none;background:#2287D7;color:#fff;font-size:15px;cursor:pointer;}
+.refuseIp-lists{color:#333;font-size:15px;margin-bottom:120px;}
+.refuseIp-item{padding:20px 0;border-bottom:1px solid #dfdfdf;}
+.refuseIp-title{color:#999;font-size:16px;}
+.refuseIp-ip,.refuseIp-time,.refuseIp-tool{float:left;height:30px;line-height:30px;text-align:center;}
+.refuseIp-ip{width:20%;}
+.refuseIp-time{width:60%;}
+.refuseIp-tool{width:20%;}
+.refuseIp-tool button{width:60px;height:25px;line-height:25px;vertical-align:middle;color:#fff;background:#c7254e;text-align:center;font-size:14px;border:0 none;cursor:pointer;}
